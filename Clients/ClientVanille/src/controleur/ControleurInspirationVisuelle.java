@@ -8,7 +8,6 @@ import modele.Pensee;
 import vue.VueInspirationVisuelle;
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControleurInspirationVisuelle implements Initializable {
@@ -30,7 +29,7 @@ public class ControleurInspirationVisuelle implements Initializable {
         Pensee pensee = penseeDAO.chargerPenseeAleatoire();
         VueInspirationVisuelle.getInstance().afficherPensee(pensee);
 
-        // Singleton obligatoire car le framework de JavaFX cache l'instance
+        // Singleton obligatoire car le framework de JavaFX accesseur.cache l'instance
         //VueInspirationVisuelle.getInstance().ecrireUnMessage("allo");
     }
 
