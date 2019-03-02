@@ -10,7 +10,16 @@
 			$requeteListerPensees->execute();
 			return $requeteListerPensees->fetchAll(PDO::FETCH_OBJ);
 		}
-		
+
+		/* function trouverPensees(numero)
+		{			
+			$SQL_TROUVER_PENSEE = "SELECT * FROM pensee WHERE id = $numero";
+			global $basededonnees;
+			$requeteListerPensees = $basededonnees->prepare($SQL_TROUVER_PENSEE);
+			$requetePensees->execute();
+			return $requetePensee->fetch(PDO::FETCH_OBJ);
+		}	 */
+
 		function ajouterPensee($pensee)
 		{
 			echo "ajouterPensee()";
