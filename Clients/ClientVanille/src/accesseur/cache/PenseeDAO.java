@@ -41,6 +41,10 @@ public class PenseeDAO implements PenseeURL {
         try {
             basededonnees = DriverManager.getConnection(DSN);
             PreparedStatement requeteEnregistrerPensee = basededonnees.prepareStatement(SQL_ENREGISTRER_PENSEE);
+
+            requeteEnregistrerPensee.setString(1, pensee.getAuteur());
+            requeteEnregistrerPensee.setString(2, pensee.getMessage());
+
             requeteEnregistrerPensee.execute();
         } catch (SQLException e) {
             e.printStackTrace();

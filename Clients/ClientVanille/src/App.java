@@ -11,7 +11,7 @@ public class App {
 
 		PenseeDAO cachePenseeDAO = new PenseeDAO();
 //		cachePenseeDAO.listerPensees();
-		cachePenseeDAO.enregistrerPensee(new Pensee("",""));
+		cachePenseeDAO.enregistrerPensee(new Pensee("Joe","20$ is 20$"));
 
 		VueInspirationVisuelle.launch(VueInspirationVisuelle.class, parametres);
 	}
