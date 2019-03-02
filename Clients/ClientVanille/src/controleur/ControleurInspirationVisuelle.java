@@ -5,32 +5,26 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import modele.Pensee;
-import outils.Journal;
 import vue.VueInspirationVisuelle;
 
 import java.net.URL;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControleurInspirationVisuelle  implements Initializable {
+public class ControleurInspirationVisuelle implements Initializable {
+    protected static ControleurInspirationVisuelle instance = null;
     protected PenseeDAO penseeDAO = new PenseeDAO();
 
-    public ControleurInspirationVisuelle()
-    {
-        List<Pensee> listePensees = penseeDAO.listerPensees();
-
-        for(Iterator<Pensee> visiteur = listePensees.iterator(); visiteur.hasNext(); )
-        {
-            Pensee pensee = visiteur.next();
-            Journal.ecrire(5, pensee.getMessage() + "(" + pensee.getAuteur() + ")");
-        }
+    public ControleurInspirationVisuelle() {
         ControleurInspirationVisuelle.instance = this;
     }
-    protected static ControleurInspirationVisuelle instance = null;
-    public static ControleurInspirationVisuelle getInstance() {return ControleurInspirationVisuelle.instance;}
 
-    @FXML protected void trouverInspiration(ActionEvent evenement) {
+    public static ControleurInspirationVisuelle getInstance() {
+        return ControleurInspirationVisuelle.instance;
+    }
+
+    @FXML
+    protected void trouverInspiration(ActionEvent evenement) {
 
         System.out.println("trouverInspiration( )");
 
@@ -38,10 +32,15 @@ public class ControleurInspirationVisuelle  implements Initializable {
         //VueInspirationVisuelle.getInstance().ecrireUnMessage("allo");
     }
 
-    public void initialiser()
-    {
-        VueInspirationVisuelle.getInstance().afficherListePensees();
+    public void initialiser() {
+        List<Pensee> listePensees = penseeDAO.listerPensees();
 
+        //for(Iterator<Pensee> visiteur = listePensees.iterator(); visiteur.hasNext(); )
+        //{
+        //	Pensee pensee = visiteur.next();
+        //	Journal.ecrire(5, pensee.getMessage() + "(" + pensee.getAuteur() + ")");
+        //}
+        VueInspirationVisuelle.getInstance().afficherListePensees(listePensees);
     }
 
     @Override
@@ -49,5 +48,4 @@ public class ControleurInspirationVisuelle  implements Initializable {
 
 
     }
-
 }
