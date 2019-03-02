@@ -35,17 +35,12 @@ public class VueInspirationVisuelle extends Application {
         // stade.setOnShowing(new EventHandler<WindowEvent>() {public void handle(WindowEvent event) {  } });
     }
 
-    public void afficherListePensees(List<Pensee> listePensees)
+    public void afficherPensee(Pensee pensee)
     {
-        System.out.println("afficherListePensees()");
+        System.out.println("afficherPensee()");
         TextArea champsMessage = (TextArea) scene.lookup("#listePensees");
 
-        for(Iterator<Pensee> visiteur = listePensees.iterator(); visiteur.hasNext(); )
-        {
-            Pensee pensee = visiteur.next();
-            String touteLaPensee = pensee.getMessage() + "(" + pensee.getAuteur() + ")";
-            champsMessage.setText(champsMessage.getText() + "\n" + touteLaPensee);
-            Journal.ecrire(5, touteLaPensee);
-        }
+        champsMessage.setText(pensee.getMessage() + " - " + pensee.getAuteur());
+        Journal.ecrire(5, pensee.getMessage() + " - " + pensee.getAuteur());
     }
 }
