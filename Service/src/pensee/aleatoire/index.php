@@ -15,5 +15,6 @@
 	<auteur><?=($pensee->auteur)?></auteur>
 	<message><?=($pensee->message)?></message>
 	<annee><?=$pensee->annee?></annee>
+	<source><?=$pensee->source?></source>
 	<id><?=$pensee->idPensee?></id>
 </pensee>
