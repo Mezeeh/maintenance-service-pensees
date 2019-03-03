@@ -37,7 +37,7 @@ public class PenseeDAO implements PenseeURL {
     public void enregistrerPensee(Pensee pensee) {
         JournalDesactivable.ecrire("CachePenseeDAO.enregistrerPensees()");
         Connection basededonnees = null;
-
+        System.out.println(pensee.getSource());
         try {
             basededonnees = DriverManager.getConnection(DSN);
             PreparedStatement requeteEnregistrerPensee = basededonnees.prepareStatement(SQL_ENREGISTRER_PENSEE);

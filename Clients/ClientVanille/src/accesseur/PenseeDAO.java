@@ -18,6 +18,7 @@ import java.util.Scanner;
 public class PenseeDAO implements PenseeURL {
 
     protected DecodeurPenseesXML decodeur = new DecodeurPenseesXML();
+    protected accesseur.cache.PenseeDAO cachePenseeDAO = new accesseur.cache.PenseeDAO();
 
     public List<Pensee> listerPensees() {
         JournalDesactivable.ecrire("listerPensees()");
@@ -61,6 +62,11 @@ public class PenseeDAO implements PenseeURL {
         }
 
         if (null == xml) return null;
+
+        // Debut maintenance pour caching par NG
+        Pensee pensee = decodeur.decoderPensee(xml);
+        cachePenseeDAO.enregistrerPensee(pensee);
+        // Fin maintenance pour caching par NG
 
         return decodeur.decoderPensee(xml);
     }
