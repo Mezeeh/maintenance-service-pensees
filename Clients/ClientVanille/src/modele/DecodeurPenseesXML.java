@@ -38,15 +38,18 @@ public class DecodeurPenseesXML {
                 String auteur = noeudPensee.getElementsByTagName("auteur").item(0).getTextContent();
                 String message = noeudPensee.getElementsByTagName("message").item(0).getTextContent();
                 String annee = noeudPensee.getElementsByTagName("annee").item(0).getTextContent();
+                String source = noeudPensee.getElementsByTagName("source").item(0).getTextContent();
 
                 Journal.ecrire(3, "Id : " + id);
                 Journal.ecrire(3, "Auteur : " + auteur);
                 Journal.ecrire(3, "Message : " + message);
                 Journal.ecrire(3, "Annee : " + annee);
+                Journal.ecrire(3, "Source : " + source);
 
                 Pensee pensee = new Pensee(auteur, message);
                 //pensee.setAnnee(Integer.parseInt(annee));
                 pensee.setId(Integer.parseInt(id));
+                pensee.setSource(source);
                 listePensees.add(pensee);
             }
         } catch (ParserConfigurationException e) {
@@ -75,15 +78,18 @@ public class DecodeurPenseesXML {
             String auteur = noeudPensee.getElementsByTagName("auteur").item(0).getTextContent();
             String message = noeudPensee.getElementsByTagName("message").item(0).getTextContent();
             String annee = noeudPensee.getElementsByTagName("annee").item(0).getTextContent();
+            String source = noeudPensee.getElementsByTagName("source").item(0).getTextContent();
 
             Journal.ecrire(3, "Id : " + id);
             Journal.ecrire(3, "Auteur : " + auteur);
             Journal.ecrire(3, "Message : " + message);
             Journal.ecrire(3, "Annee : " + annee);
+            Journal.ecrire(3, "Source : " + source);
 
             Pensee pensee = new Pensee(auteur, message);
             //pensee.setAnnee(Integer.parseInt(annee));
             pensee.setId(Integer.parseInt(id));
+            pensee.setSource(source);
 
             return pensee;
         } catch (ParserConfigurationException e) {
