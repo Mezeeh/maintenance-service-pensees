@@ -44,6 +44,7 @@ public class PenseeDAO implements PenseeURL {
 
             requeteEnregistrerPensee.setString(1, pensee.getAuteur());
             requeteEnregistrerPensee.setString(2, pensee.getMessage());
+            requeteEnregistrerPensee.setString(3, pensee.getSource());
 
             requeteEnregistrerPensee.execute();
         } catch (SQLException e) {
